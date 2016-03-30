@@ -881,56 +881,20 @@ cout<<"this is the end"<<endl;
 			cout<<rows<<") ";
 			for(int j=0; j<num_f-1; j++)
 			{
-				int m=msw[j];
-				//cout<<m<<" ";
-				cout<<res_arr[m-1][h]<<" ";
+				//cout<<msw[j]<<" ";
+				//cout<<h<<" ";
+				cout<<res_arr[msw[j]-1][h]<<" ";  //выводим крайние результативные стлбики
 				if(j==num_f-2)
 				{
-					m=msw[j+1];
-					cout<<res_arr[m-1][h]<<" ";
+					cout<<res_arr[msw[j+1]-1][h]<<" ";
 				}
-				m=msw[j];
-				/*if(res_arr[m-1][h]==0)
-				{
-					//cout<<i<<"line"<<j<<"kol";
-					break;
-				}*/
-				if(res_arr[m-1][h]==1){counter3++;}
-				
-				if(counter3==(num_f-1))
-				{
-					//cout<<"Stroka odinici vse "<<msw[num_f-1];
-					int kvo=msw[num_f-1];
-					//cout<<" "<<res_arr[kvo-1][h];
-					//cout<<i<<"line is full of 1";
-					if(res_arr[kvo-1][h]==0)
-					{
-						cout<<"Ne sleduet";
-						goto zanovo;
-						//exit(0);   //выходим из Всех циклов. и говорим что не следствие
-					}
-					if(res_arr[kvo-1][h]==1)
-					{
-						if(h==15)
-						{
-							cout<<endl;
-							cout<<endl;
-							for(int c=0;c<num_f-1;c++)
-							{
-								cout<<msw[c]<<" ";
-							}
-							int cc=num_f-1;
-							cout<<"|= "<<msw[cc];
 
-							cout<<endl;
-							cout<<"SLEDUET";   //выходим ото всюду и говорим что следование выполняется.
-							cout<<endl;
-						}
-						break;  //выходим из первого цикла фор.
-					}
-					break;
+				if((res_arr[msw[j]-1][h])>(res_arr[msw[j+1]-1][h]))
+				{
+					cout<<"NE SLEDUET"<<endl;
+					goto zanovo;
 				}
-				//cout<<res_arr[m][h]<<" ";  //ыводим крайние результативные стлбики
+
 			}
 			cout<<endl;
 		}
